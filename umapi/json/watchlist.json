@@ -1,0 +1,33 @@
+[
+	{
+		"url": "print_job/state",
+		"items": [
+			{
+				"key": null,
+				"name": "state"
+			}
+		]
+	},
+	{
+		"url": "printer/heads/0/position",
+		"items": [
+			{
+				"key": "z",
+				"name": "z"
+			}
+		]
+	},
+	{
+		"url": "printer/heads/0/extruders/0/hotend/temperature",
+		"items": [
+			{
+				"key": "current",
+				"name": "hotendtemp_current"
+			},
+			{
+				"key": "target",
+				"name": "hotendtemp_target"
+			}
+		]
+	}
+]
