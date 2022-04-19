@@ -31,18 +31,18 @@ umapi\json\watchlist.json を開き, 下の例のように編集します.
 ```json
 [
     {
-		"url": "printer/heads/0/extruders/0/hotend/temperature",
-		"items": [
-			{
-				"key": "current",
-				"name": "hotendtemp_current"
-			},
-			{
-				"key": "target",
-				"name": "hotendtemp_target"
-			}
-		]
-	}
+        "url": "printer/heads/0/extruders/0/hotend/temperature",
+        "items": [
+            {
+                "key": "current",
+                "name": "hotendtemp_current"
+            },
+            {
+                "key": "target",
+                "name": "hotendtemp_target"
+            }
+        ]
+    }
 ]
 ```
 
