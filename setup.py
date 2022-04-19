@@ -11,7 +11,7 @@ setup(
     install_requires=[
         'pandas',
         'requests',
-        'cv2',
+        'opencv-python',
         'numpy'
     ]
 )
