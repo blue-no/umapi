@@ -86,6 +86,5 @@ printer.abort()  # 印刷中断
 
 ## Installation
 ```
-git clone https://github.com/ut-hnl-lab/umapi.git
-pip install .\umapi
+pip install git+https://github.com/ut-hnl-lab/umapi.git
 ```
