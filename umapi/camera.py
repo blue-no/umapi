@@ -51,9 +51,7 @@ class CameraStream:
 
                 while self.is_stream_alive:
                     frame = self.capture.read()[1]
-                    if frame is None:
-                        continue
-                    if undistort:
+                    if frame is not None and undistort:
                         frame = calib.undistort(frame)
                     cv2.imshow(f'stream', frame)
                     self.frame = frame
@@ -74,12 +72,12 @@ class CameraStream:
             cv2.destroyAllWindows()
             logger.info('Closed camera')
 
-    def fetch(self, tag: Optional[str] = None) -> np.ndarray:
+    def fetch(self, label: Optional[str] = None) -> np.ndarray:
         """現在のフレームを取得, 保存する.
 
         Parameters
         ----------
-            tag: 画像の保存名
+            label: 画像の保存名
                 指定しなければ取得時刻となる.
 
         Returns
@@ -88,14 +86,14 @@ class CameraStream:
         """
         logger.info(f'Fetching frame...')
         frame = self.frame
-        if tag is None:
-            tag = utils.formatted_now()
-        self._save(frame, tag)
+        if label is None:
+            label = utils.formatted_now()
+        self._save(frame, label)
         return frame
 
-    def _save(self, frame: np.ndarray, tag: str) -> None:
+    def _save(self, frame: np.ndarray, label: str) -> None:
         os.makedirs(self.savedir, exist_ok=True)
-        path = os.path.join(self.savedir, f"{tag}.png")
+        path = os.path.join(self.savedir, f"cam-{label}.png")
         Image.fromarray(
             cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)).save(path)
         logger.debug('Saved frame')
